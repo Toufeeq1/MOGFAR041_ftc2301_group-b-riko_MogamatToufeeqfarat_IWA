@@ -8,13 +8,13 @@ customers = '1'
 if ('RSA' === myLocation) {
     let shipping = 400 && currency === 'R'
 }
-if ('NAM' === myLocation) {
+else if ('NAM' === myLocation) {
     let shipping = 600 && currency === '$'
 }
-if ('NK' === myLocation) {
+ else if ('NK' === myLocation) {
     console.log(BANNED_WARNING)
 }
-if (myLocation !== 'NAM', 'RSA', 'NK') { const shipping = 800 && currency === '$' }
+else if (myLocation !== 'NAM', 'RSA', 'NK') { const shipping = 800 && currency === '$' }
 
 shoes = 300 * 1
 toys = 100 * 5
@@ -28,8 +28,7 @@ currency = '$'
 if ('shoes' + 'toys' + 'batteries' + 'pens' + 'shirts' > (1000 && currency === 'R') || (60 && currency === '$')) {
     let shipping = 0
 }
-
-console.log('price', currency, shoes + batteries + toys + shipping + shirts)
+    console.log('price', currency, shoes + batteries + toys + shipping + shirts)
 
 
 
