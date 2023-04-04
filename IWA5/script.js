@@ -1,10 +1,10 @@
-FREE_WARNING = 'Free shipping only applies o single customer orders'
+FREE_WARNING = 'Free shipping only applies to single customer orders'
 BANNED_WARNING = 'Unfortunately we do not ship to your country of residence'
 NONE_SELECTED = '0'
-let myLocation = 'RSA'
+let myLocation = 'NK'
 let currency = null
-let customers = '2'
-
+let customers = '1' 
+let shipping = null
 
 if ('RSA' === myLocation) {
   shipping = 400, currency = 'R'
@@ -23,15 +23,15 @@ shirts = 150 * NONE_SELECTED
 batteries = 35 * 2
 pens = 5 * NONE_SELECTED
 
-shipping = null
+
 // currency = 'N$'
 
 
 if (shoes + toys + batteries + pens + shirts > (1000 && currency === 'R') || (60 && currency === '$')) {
-  let shipping = 0
+  const shipping = '0' 
 }
 
-if (shipping === 0 && customers === 1) { console.log(FREE_WARNING) }
+if (shipping === '0' || customers !== '1') { console.log(FREE_WARNING) }
 
 
 console.log('price', currency, shoes + batteries + toys + shipping + shirts)
