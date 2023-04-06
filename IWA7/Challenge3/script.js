@@ -13,12 +13,12 @@ let leobal = leoBalance * -1
 let sarbal = sarahBalance * -1
 let end = sarbal.toFixed(2)
 const owed = parseFloat( leobal + sarbal)
-const leo = `${leoName} ${leoSurname}`+`(Owed R ${leobal})\n`
-const sarah =  `${sarahName}` + `${sarahSurname}` + `(Owed R ${parseFloat(end)})\t \n`
+const leo = `${leoName}  ${leoSurname.trimEnd()} (Owed R ${leobal.toFixed(2)})\n`
+const sarah =  `${sarahName.trimEnd()} ${sarahSurname} (Owed R ${parseFloat(end)})\t \n`
 const total = "\nTotal amount owed: "
 const result = leo + sarah + divider + total + "R" + owed.toFixed(2) + `\n${divider}`
 
-
+ 
 console.log(result)
 
 
