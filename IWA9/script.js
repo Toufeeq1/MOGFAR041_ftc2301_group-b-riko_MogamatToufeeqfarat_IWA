@@ -29,7 +29,7 @@ const rent = {
 }
 
 // You can change below however you want
-
+//added parseInt because tas is a string 
 const taxAsDecimal = parseInt(tax[913]) / 100
 const startingAfterTax =salary - (salary* taxAsDecimal)
 const type = `${size}-${lodging}`
