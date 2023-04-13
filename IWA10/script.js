@@ -69,11 +69,11 @@ correctDate.minutes = 0
 isEarlier = copied.date < holidays[6].date
 console.log('New date is earlier:', isEarlier)
 if (isEarlier) copied.date = correctDate
-console.log('ID change:', holidays[christmas].id != copied.id || copied.id)
-console.log('Name change:', holidays[christmas].name != copied.name || copied.name)
-console.log('Date change:', holidays[christmas].date != copied.date || copied.date)
-console.log( copied.id )
-console.log( holidays[christmas].id )
+console.log('ID change:', holidays[christmas].id === copied.id && copied.id)
+console.log('Name change:', holidays[christmas].name != copied.name && copied.name)
+console.log('Date change:', holidays[christmas].date != copied.date && copied.date)
+// console.log( copied.id ) test 
+// console.log( holidays[christmas].id ) test 
 
 const firstHolidayTimestamp = Math.min(
     holidays[0].date.getTime,
