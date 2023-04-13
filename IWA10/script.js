@@ -100,11 +100,12 @@ const lastHolidayTimestamp = Math.max(
     new Date(holidays[6].date).getTime(),
     new Date(holidays[7].date).getTime(),
     new Date(holidays[8].date).getTime(),
-)
+)  
+
 console.log(lastHolidayTimestamp)
  const firstDay = new Date(firstHolidayTimestamp).getDate().toString() ;
   const firstMonth = new Date(firstHolidayTimestamp).getMonth().toString() + 1;
- const lastDay = new Date(lastHolidayTimestamp ).getDate().toString() ;
+ const lastDay = new Date(lastHolidayTimestamp ).getDate() ;
   const lastMonth = new Date(lastHolidayTimestamp ).getMonth() + 1 ; 
 
 
@@ -112,4 +113,4 @@ console.log(`${firstDay.padStart(2, '0')}/${firstMonth}/${currentYear}`)
 console.log(`${lastDay}/${lastMonth}/${currentYear}`)
  // added Math.floor so the code will be whole number and * 8 so it will only generate number from 1 to 8
 const randomHoliday = holidays[Math.floor(Math.random() * 8)]
-console.log(randomHoliday.date)
+console.log(randomHoliday.date.toLocaleTimeString('en-It'))
