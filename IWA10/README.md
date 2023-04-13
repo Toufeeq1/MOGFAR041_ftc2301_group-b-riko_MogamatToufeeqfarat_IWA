@@ -69,7 +69,7 @@ console.log('Name change:', holidays[christmas].name != copied.name || copied.na
 console.log('Date change:', holidays[christmas].date != copied.date || copied.date)
 
 const firstHolidayTimestamp = Math.min(
-    holidays[0].date.getTime,
+    holidays[0].date.getTime(),
     holidays[1].date.getTime,
     holidays[2].date.getTime,
     holidays[3].date.getTime,
