@@ -113,4 +113,4 @@ console.log(`${firstDay.padStart(2, '0')}/${firstMonth}/${currentYear}`)
 console.log(`${lastDay}/${lastMonth}/${currentYear}`)
  // added Math.floor so the code will be whole number and * 8 so it will only generate number from 1 to 8
 const randomHoliday = holidays[Math.floor(Math.random() * 8)]
-console.log(randomHoliday.date.toLocaleTimeString('en-It'))
+console.log(randomHoliday.date.toLocaleString())
