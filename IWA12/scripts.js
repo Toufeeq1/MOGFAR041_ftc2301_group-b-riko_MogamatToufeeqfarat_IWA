@@ -48,12 +48,10 @@ const info2 = document.getElementsByClassName('checkin')
 const info3 = document.getElementsByTagName('button')
 console.log(info2)
 
-/**
- * color change in text
- */
-let colorChange = info1[0].style.color = STATUS_MAP['overdue'].color;
-let colorChange2 = info1[1].style.color = STATUS_MAP['reserved'].color;
-let colorChange3 = info1[2].style.color = STATUS_MAP['shelf'].color;
+
+
+
+
 
 /**
  * color change to button
@@ -68,35 +66,44 @@ let nocolor3 = info2[2].removeAttribute('style')
 if (info1[0].innerText === 'overdue'){
     info3[0].disabled = true;
     info3[1].disabled = true;
+    let colorChange = info1[0].style.color = STATUS_MAP['overdue'].color;
 } else if (info1[0].innerText === 'reserved'){
     info3[0].disabled = true;
     info3[2].disabled = true;
+    let colorChange2 = info1[1].style.color = STATUS_MAP['reserved'].color;
 } else if (info1[0].innerText === 'shelf'){
     info3[1].disabled = true;
+    let colorChange3 = info1[2].style.color = STATUS_MAP['shelf'].color;
 } 
 
 if (info1[1].innerText === 'overdue'){
     info3[3].disabled = true;
     info3[4].disabled = true;
+    let colorChange = info1[0].style.color = STATUS_MAP['overdue'].color;
 } else if (info1[1].innerText === 'reserved'){
     info3[3].disabled = true;
     info3[5].disabled = true;
+    let colorChange2 = info1[1].style.color = STATUS_MAP['reserved'].color;
 } else if (info1[1].innerText === 'shelf'){
     info3[5].disabled = true;
+    let colorChange3 = info1[2].style.color = STATUS_MAP['shelf'].color;
 } 
 
 if (info1[2].innerText === 'overdue'){
     info3[6].disabled = true;
     info3[7].disabled = true;
+    let colorChange = info1[0].style.color = STATUS_MAP['overdue'].color;
 } else if (info1[2].innerText === 'reserved'){
     info3[6].disabled = true;
     info3[8].disabled = true;
+    let colorChange2 = info1[1].style.color = STATUS_MAP['reserved'].color;
 } else if (info1[2].innerText === 'shelf'){
     info3[8].disabled = true;
+    let colorChange3 = info1[2].style.color = STATUS_MAP['shelf'].color;
 } 
 
 
-console.log(info3)
+console.log(info1)
 
 
 
