@@ -81,14 +81,17 @@ html.add.overlay.close()
 
 const handleAddSubmit = (event) => {
     event.preventDefault()
-    const title = event.target.elements.title.value
-    const table = event.target.elements.table.value
-    const column = 'ordered'
-    const order = createOrderData({ title, table, column })
-    state.orders[order.id] = order
-    const element = createOrderHtml(order)
-    const columnContainer = document.querySelector(`[data-column="${column}"]`)
-    columnContainer.appendChild(element)
+    const props = {
+        title: html.add.title.value,
+        table: html.add.table.value,
+        column: 'ordered' 
+    }
+    const data = createOrderData(props)
+    const content = createOrderHtml(data)
+    const orderedColumn = document.querySelector('[data-area="ordered"]');
+    const orderedDiv = orderedColumn.querySelector('[data-column="ordered"]');
+
+    orderedDiv.appendChild(content)
     html.add.overlay.close()
 }
 
