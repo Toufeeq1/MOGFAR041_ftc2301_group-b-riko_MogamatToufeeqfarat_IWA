@@ -1,5 +1,3 @@
-// scripts.js
-
 const MONTHS = [
     'January',
     'February',
@@ -20,76 +18,84 @@ const getDaysInMonth = (date) => new Date(date.getFullYear(), date.getMonth() + 
 // Only edit below 
 
 const createArray = (length) => {
-    const result = []
+    const result = [];
 
-    for (let i =0; i < length ; i++) {
-        result.push(i)
+    for (let i = 0; i <length; i++) {       
+        result.push(i);
     }
-   return result
+    return result;
 }
 
 const createData = () => {
-    const current = new Date;
-    current.setDate(1)
- console.log(current.setDate(1))
-    const startDay = current.getDay
-    const  daysInMonth = getDaysInMonth(current)
 
-   const weeks = createArray(5)
-   const days = createArray(7)
-   const value = null
+    const current = new Date();           
+    current.setDate(1);
 
-    for (weekIndex in weeks) {
-        value = [{
+    const startDay = current.getDay();        
+    const daysInMonth = getDaysInMonth(current);
+
+    const weeks = createArray(6);             
+    const days = createArray(7);
+    let value = null;
+    
+    const result = [];
+
+    for (let weekIndex of weeks) {         
+        value = {                           
             week: weekIndex + 1,
-            days: []
-        }]
-
-        for (dayIndex in days) {
-            value = dayIndex - startDay
-            isValid = day > 0 && day <= daysInMonth
-
-            result[weekIndex].days = [{
-                dayOfWeek: dayIndex + 1,
-                value: isValid && day,
-            }]
+            days: [],
         }
+
+        for (let dayIndex of days) {                
+            const day = (weekIndex * 7) + dayIndex - startDay + 1;          
+            const isValid = day > 0 && day <= daysInMonth;
+
+            value.days.unshift({
+                dayOfWeek: dayIndex + 1,
+                value: isValid ? day : "",           
+            })
+        }
+        result.push(value)                 
     }
+    return result;
 }
 
 const addCell = (existing, classString, value) => {
-    const result = /* html */ `
-        <td ${classString}>
+    const result = /* html */ 
+    `
+        <td class="${classString}">
             ${value}
         </td>
 
         ${existing}
-    `
+    `;
+    return result;
 }
 
 const createHtml = (data) => {
-    let result = ''
+    let result = '';
 
-    for ( week, days in data) {
-        let inner = ""
-        addCell(inner, 'table__cell table__cell_sidebar', 'Week {week}')
+    for (let week of data) {    
+        let inner = "";
     
-        for (dayOfWeek, value in days) {
-            classString = table__cell
-						isToday = new Date === value
-            isWeekend = dayOfWeek = 1 && dayOfWeek == 7
-            isAlternate = week / 2
+        for (let day of week.days) {        
+            let classString = 'table__cell';            
+            const isToday = new Date().getDate() === day.value;
+            const isWeekend = day.dayOfWeek === 1 || day.dayOfWeek === 7;
+            const isAlternate = week.week % 2 === 0;
 
-            let classString = 'table__cell'
 
-						if (isToday) classString = `${classString} table__cell_today`
-            if (isWeekend) classString === '{classString} table__cell_weekend'
-            if (isAlternate) classString === '{classString} table__cell_alternate'
-            addCell(inner, classString, value)
+            if (isToday) classString = `${classString} table__cell_today`;          
+            if (isWeekend) classString = `${classString} table__cell_weekend`;           
+            if (isAlternate) classString = `${classString} table__cell_alternate`;        
+
+            inner = addCell(inner, classString, day.value)
         }
 
-        result = `<tr>${inner}</tr>`
+        inner = addCell(inner, 'table__cell table__cell_sidebar',`Week ${week.week}`)                
+        result += `<tr>${inner}</tr>`
     }
+    return result;
 }
 
 // Only edit above
