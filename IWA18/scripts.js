@@ -1,3 +1,6 @@
+import { TABLES, COLUMNS, state, createOrderData, updateDragging } from "./data";
+import { createOrderHtml, html,updateDraggingHtml, moveToColumn } from "./view";
+
 /**
  * A handler that fires when a user drags over any element inside a column. In
  * order to determine which column the user is dragging over the entire event
