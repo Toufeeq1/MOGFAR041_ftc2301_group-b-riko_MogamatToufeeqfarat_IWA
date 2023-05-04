@@ -31,14 +31,85 @@ const handleDragOver = (event) => {
 }
 
 
-const handleDragStart = (event) => {}
-const handleDragEnd = (event) => {}
-const handleHelpToggle = (event) => {}
-const handleAddToggle = (event) => {}
-const handleAddSubmit = (event) => {}
-const handleEditToggle = (event) => {}
-const handleEditSubmit = (event) => {}
-const handleDelete = (event) => {}
+
+
+const handleDragStart = (event) => {
+
+}
+
+
+
+
+
+
+const handleDragEnd = (event) => {
+
+}
+
+
+
+
+const handleHelpToggle = (event) => {
+const {target} = event
+if (target == html.other.help){
+html.help.overlay.showModal()
+}
+if (target == html.help.cancel){
+html.help.overlay.closest()
+}
+}
+
+
+
+
+
+
+const handleAddToggle = (event) => {
+const {target} = event
+if (target == html.other.help){
+html.help.overlay.showModal()
+}
+if (target == html.help.cancel){
+html.help.overlay.close()
+}
+}
+
+
+
+
+
+const handleAddSubmit = (event) => {
+
+}
+
+
+
+
+
+
+const handleEditToggle = (event) => {
+    
+}
+
+
+
+
+
+const handleEditSubmit = (event) => {
+
+}
+
+
+
+
+const handleDelete = (event) => {
+
+}
+
+
+
+
+
 
 html.add.cancel.addEventListener('click', handleAddToggle)
 html.other.add.addEventListener('click', handleAddToggle)
