@@ -55,7 +55,7 @@ if (target == html.other.help){
 html.help.overlay.showModal()
 }
 if (target == html.help.cancel){
-html.help.overlay.closest()
+html.help.overlay.close()
 }
 }
 
