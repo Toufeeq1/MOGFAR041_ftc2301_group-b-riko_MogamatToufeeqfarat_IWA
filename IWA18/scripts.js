@@ -1,5 +1,5 @@
-import { TABLES, COLUMNS, state, createOrderData, updateDragging } from "./data";
-import { createOrderHtml, html,updateDraggingHtml, moveToColumn } from "./view";
+import { TABLES, COLUMNS, state, createOrderData, updateDragging } from "./data.js";
+import { createOrderHtml, html,updateDraggingHtml, moveToColumn } from "./view.js";
 
 /**
  * A handler that fires when a user drags over any element inside a column. In
@@ -51,11 +51,12 @@ const handleDragEnd = (event) => {
 
 const handleHelpToggle = (event) => {
 const {target} = event
-if (target == html.other.help){
-html.help.overlay.showModal()
+if (target == html.other.help) {
+    html.help.overlay.showModal()
 }
-if (target == html.help.cancel){
-html.help.overlay.close()
+
+if (target == html.help.cancel) {
+    html.help.overlay.close()
 }
 }
 
@@ -66,11 +67,11 @@ html.help.overlay.close()
 
 const handleAddToggle = (event) => {
 const {target} = event
-if (target == html.other.help){
-html.help.overlay.showModal()
+if (target == html.other.add){
+html.add.overlay.showModal()
 }
-if (target == html.help.cancel){
-html.help.overlay.close()
+if (target == html.add.cancel){
+html.add.overlay.close()
 }
 }
 
@@ -79,7 +80,16 @@ html.help.overlay.close()
 
 
 const handleAddSubmit = (event) => {
-
+    event.preventDefault()
+    const title = event.target.elements.title.value
+    const table = event.target.elements.table.value
+    const column = 'ordered'
+    const order = createOrderData({ title, table, column })
+    state.orders[order.id] = order
+    const element = createOrderHtml(order)
+    const columnContainer = document.querySelector(`[data-column="${column}"]`)
+    columnContainer.appendChild(element)
+    html.add.overlay.close()
 }
 
 
